@@ -69,7 +69,7 @@ export default function InputForm(props: InputFormProps) {
         label="valor"
       />
 
-      <div className="flex gap-5 flex-row mb-5">
+      <div className="flex flex-col sm:flex-row gap-5  mb-5">
         <Select
           onChange={e => handleSelectChange('from', e.target.value)}
           value={selectValueFrom}
