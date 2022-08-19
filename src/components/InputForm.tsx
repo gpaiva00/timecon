@@ -62,7 +62,10 @@ export default function InputForm(props: InputFormProps) {
   }
 
   return (
-    <form className="flex flex-col gap-5" onSubmit={e => e.preventDefault()}>
+    <form
+      className="flex flex-col gap-5 w-full sm:w-auto"
+      onSubmit={e => e.preventDefault()}
+    >
       <Input
         onChange={e => handleInputChange(e.target.value)}
         value={inputTime}

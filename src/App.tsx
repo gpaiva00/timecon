@@ -24,7 +24,7 @@ function App() {
         timecon
       </h1>
 
-      <div className="flex flex-col justify-center items-center bg-background w-full h-96 sm:h-96 sm:w-96 p-6 sm:p-10 rounded-lg shadow-neuromorphic">
+      <div className="flex flex-col justify-center items-center bg-background w-full h-96 sm:h-80 sm:w-96 p-6 sm:p-10 rounded-lg shadow-neuromorphic">
         {result.time ? (
           <ResultView result={result} onClose={handleOnCloseResult} />
         ) : (
