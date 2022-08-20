@@ -1,5 +1,7 @@
+// TODO: retirar da lista direita o que foi selecionado na lista esquerda
 import { useState } from 'react'
 import { ResultProps } from '../App'
+import listOptions from '../common/listOptions'
 import timecon from '../utils/timecon'
 import Button from './Button'
 import Input from './Input'
@@ -38,11 +40,6 @@ export default function InputForm(props: InputFormProps) {
       return
     }
 
-    if (selectValueFrom === selectValueTo) {
-      alert('Selecione um tipo de conversão diferente')
-      return
-    }
-
     if (!inputTime) {
       alert('Insira um valor')
       return
@@ -62,6 +59,9 @@ export default function InputForm(props: InputFormProps) {
     })
   }
 
+  const getFromOptions = (selectedValueFrom: string) =>
+    listOptions.filter(option => option.value !== selectedValueFrom)
+
   return (
     <form
       className="flex flex-col gap-3 w-full sm:w-auto"
@@ -77,32 +77,14 @@ export default function InputForm(props: InputFormProps) {
         <Select
           onChange={e => handleSelectChange('from', e.target.value)}
           value={selectValueFrom}
-          options={[
-            { value: 'milliseconds', label: 'milissegundos' },
-            { value: 'seconds', label: 'segundos' },
-            { value: 'minutes', label: 'minutos' },
-            { value: 'hours', label: 'horas' },
-            { value: 'days', label: 'dias' },
-            { value: 'weeks', label: 'semanas' },
-            { value: 'months', label: 'meses' },
-            { value: 'years', label: 'anos' }
-          ]}
+          options={listOptions}
           label="de"
         />
 
         <Select
           onChange={e => handleSelectChange('to', e.target.value)}
           value={selectValueTo}
-          options={[
-            { value: 'milliseconds', label: 'milissegundos' },
-            { value: 'seconds', label: 'segundos' },
-            { value: 'minutes', label: 'minutos' },
-            { value: 'hours', label: 'horas' },
-            { value: 'days', label: 'dias' },
-            { value: 'weeks', label: 'semanas' },
-            { value: 'months', label: 'meses' },
-            { value: 'years', label: 'anos' }
-          ]}
+          options={getFromOptions(selectValueFrom)}
           label="em"
         />
       </div>
