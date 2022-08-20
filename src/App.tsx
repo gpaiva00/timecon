@@ -18,7 +18,7 @@ function App() {
   }
 
   return (
-    <div className="w-full min-h-screen flex flex-1 gap-10 flex-col justify-center items-center px-3 sm:px-0">
+    <div className="w-full h-fit pt-6 sm:pt-0 sm:h-screen flex flex-1 gap-8 sm:gap-10 flex-col justify-center items-center px-3 sm:px-0">
       <h1 className="flex items-center gap-2 text-6xl font-black text-primary">
         <HourglassSimple size={32} weight="bold" className="text-zinc-800" />
         timecon

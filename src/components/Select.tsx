@@ -19,7 +19,7 @@ export default function Select(props: SelectProps) {
         <label className="text-zinc-800 text-2xl font-bold">{label}</label>
       )}
       <select
-        className="w-full bg-white border-zinc-200 rounded-lg p-2 h-10"
+        className="w-full bg-white border-zinc-200 rounded-lg p-2 h-12 sm:h-10"
         {...rest}
       >
         <option value="">Selecione</option>

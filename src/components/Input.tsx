@@ -18,7 +18,7 @@ export default function Input(props: InputProps) {
         <label className="text-zinc-800 text-2xl font-bold">{label}</label>
       )}
       <input
-        className="w-full bg-zinc-100 border-zinc-200 rounded-lg p-2 h-10"
+        className="w-full bg-zinc-100 border-zinc-200 rounded-lg p-2 h-12 sm:h-10"
         type={type}
         placeholder={placeholder}
         value={value}

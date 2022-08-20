@@ -1,5 +1,6 @@
 import { ResultProps } from '../App'
 import englishUnitToPortuguese from '../utils/englishUnitToPortuguese'
+import Button from './Button'
 
 interface ResultViewProps {
   result: ResultProps
@@ -9,7 +10,7 @@ interface ResultViewProps {
 export default function ResultView(props: ResultViewProps) {
   const { result, onClose } = props
   return (
-    <div className="w-full flex flex-col gap-6">
+    <div className="w-full flex flex-col gap-12 sm:gap-6">
       <h1 className="flex flex-col items-center gap-5 font-bold text-5xl text-zinc-800">
         <span className="flex items-center gap-2">
           {`${result.time}`}
@@ -26,12 +27,7 @@ export default function ResultView(props: ResultViewProps) {
         </span>
       </h1>
 
-      <button
-        className="w-full bg-primary text-zinc-100 font-medium hover:bg-zinc-800 hover:text-secondary rounded-lg p-2 h-10 transition-colors"
-        onClick={onClose}
-      >
-        Voltar
-      </button>
+      <Button onClick={onClose} text="voltar" />
     </div>
   )
 }

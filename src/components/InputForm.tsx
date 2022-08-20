@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ResultProps } from '../App'
 import timecon from '../utils/timecon'
+import Button from './Button'
 import Input from './Input'
 import Select from './Select'
 
@@ -63,7 +64,7 @@ export default function InputForm(props: InputFormProps) {
 
   return (
     <form
-      className="flex flex-col gap-5 w-full sm:w-auto"
+      className="flex flex-col gap-3 w-full sm:w-auto"
       onSubmit={e => e.preventDefault()}
     >
       <Input
@@ -106,12 +107,7 @@ export default function InputForm(props: InputFormProps) {
         />
       </div>
 
-      <button
-        className="w-full bg-primary text-zinc-100 font-medium hover:bg-zinc-800 hover:text-secondary rounded-lg p-2 h-10 transition-colors"
-        onClick={handleConvert}
-      >
-        Converter
-      </button>
+      <Button onClick={handleConvert} text="converter" />
     </form>
   )
 }
