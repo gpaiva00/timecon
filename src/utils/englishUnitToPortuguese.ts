@@ -1,16 +1,22 @@
-const englishUnitToPortuguese = (englishUnit: string) => {
+const englishUnitToPortuguese = (englishUnit: string, time: number) => {
   const unitsToPortuguese = {
-    milliseconds: 'milissegundos',
-    seconds: 'segundos',
-    minutes: 'minutos',
-    hours: 'horas',
-    days: 'dias',
-    weeks: 'semanas',
-    months: 'meses',
-    years: 'anos'
+    milliseconds: 'milissegundo',
+    seconds: 'segundo',
+    minutes: 'minuto',
+    hours: 'hora',
+    days: 'dia',
+    weeks: 'semana',
+    months: 'mes',
+    years: 'ano'
   }
 
-  return unitsToPortuguese[englishUnit]
+  const unitInPortuguese = unitsToPortuguese[englishUnit]
+  const isPlural = time > 1
+  let plural = isPlural ? 's' : ''
+
+  plural = englishUnit === 'months' ? 'es' : plural
+
+  return `${unitInPortuguese}${plural}`
 }
 
 export default englishUnitToPortuguese
