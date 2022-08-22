@@ -71,6 +71,7 @@ export default function InputForm(props: InputFormProps) {
         onChange={e => handleInputChange(e.target.value)}
         value={inputTime}
         label="valor"
+        autoFocus
       />
 
       <div className="flex flex-col sm:flex-row gap-5 mb-5">

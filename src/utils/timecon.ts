@@ -20,7 +20,10 @@ import {
   millisecondsToSeconds,
   millisecondsToHours,
   millisecondsToDays,
-  millisecondsToWeeks
+  millisecondsToWeeks,
+  millisecondsToMinutes,
+  millisecondsToMonths,
+  millisecondsToYears
 } from './milliseconds'
 import {
   minutesToMilliseconds,
@@ -74,19 +77,19 @@ interface timeconProps {
   time: number
 }
 
-const DECIMAL_PLACES = 2
+const DECIMAL_PLACES = 1
 
 const timecon = ({ from, to, time }: timeconProps): number => {
   const convertType = `${from}|${to}`
 
   const convertFunctions = {
     'milliseconds|seconds': millisecondsToSeconds,
-    'milliseconds|minutes': millisecondsToHours,
+    'milliseconds|minutes': millisecondsToMinutes,
     'milliseconds|hours': millisecondsToHours,
     'milliseconds|days': millisecondsToDays,
     'milliseconds|weeks': millisecondsToWeeks,
-    'milliseconds|months': millisecondsToSeconds,
-    'milliseconds|years': millisecondsToHours,
+    'milliseconds|months': millisecondsToMonths,
+    'milliseconds|years': millisecondsToYears,
 
     'seconds|milliseconds': secondsToMilliseconds,
     'seconds|minutes': secondsToMinutes,
@@ -145,12 +148,13 @@ const timecon = ({ from, to, time }: timeconProps): number => {
     'years|months': yearsToMonths
   }
 
-  const convertResult = convertFunctions[convertType](time)
+  const convertResult: number = convertFunctions[convertType](time)
 
-  return (
-    Math.round(convertResult * Math.pow(10, DECIMAL_PLACES)) /
-    Math.pow(10, DECIMAL_PLACES)
-  )
+  console.warn({ convertResult, convertType, time })
+  
+
+  return convertResult.toPrecision(DECIMAL_PLACES)
+
 }
 
 export default timecon
