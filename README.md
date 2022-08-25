@@ -19,7 +19,7 @@
 
 💻 **teste rapidamente**
 <br/>
-Digite baixe o projeto e digite `yarn dev` no terminal.
+Baixe o projeto e digite `yarn dev` no terminal.
 
 <hr />
 💜 Gostou? Retribua com um café ou chá
